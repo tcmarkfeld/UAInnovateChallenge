@@ -92,7 +92,7 @@ namespace UAInnovateChallenge.Models
             {
                 return NotFound();
             }
-            ViewData["BarId"] = new SelectList(_context.Bar, "Id", "Id", barPosts.BarId);
+            ViewData["BarId"] = new SelectList(_context.Bar, "Id", "Name", barPosts.BarId);
             return View(barPosts);
         }
 
@@ -128,7 +128,7 @@ namespace UAInnovateChallenge.Models
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BarId"] = new SelectList(_context.Bar, "Id", "Id", barPosts.BarId);
+            ViewData["BarId"] = new SelectList(_context.Bar, "Id", "Name", barPosts.BarId);
             return View(barPosts);
         }
 

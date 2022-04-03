@@ -2,72 +2,55 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/AllBarsLayout.cshtml";
+    Layout = "~/Views/Shared/BarsLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+<div class="row">
+<!-- Portfolio Single Image
+============================================= -->
+<div class="col-lg-8 portfolio-single-image">
+	<a href="#">@if (@Html.DisplayFor(model => model.BarPicture) != null)
+							{<img width="100" src="@Url.Action("GetBarPhoto", "Bars", new {@Model.Id})" alt="@Html.DisplayFor(model => model.Name)" />}</a>
+</div><!-- .portfolio-single-image end -->
 
-<div>
-    <h4>Bar</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cover)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cover)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Bio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WaitTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WaitTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Street)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Street)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.State)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BarPicture)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BarPicture)
-        </dd>
-    </dl>
+<!-- Portfolio Single Content
+============================================= -->
+<div class="col-lg-4 portfolio-single-content">
+
+	<!-- Portfolio Single - Description
+	============================================= -->
+	<div class="fancy-title title-bottom-border">
+		<h2>About @Model.Name:</h2>
+	</div>
+	<p>@Model.Bio</p>
+	
+	<div class="line"></div>
+
+	<!-- Portfolio Single - Meta
+	============================================= -->
+	<ul class="portfolio-meta bottommargin">
+		<li><span><i class="icon-location"></i>Located at:</span> @Model.Street, @Model.City, @Model.State @Model.ZipCode</li>
+		<li><span><i class="icon-clock"></i>Wait Time:</span> @Model.WaitTime minutes</li>
+		<li><span><i class="icon-dollar"></i>Cover:</span> $@Model.Cover</li>
+	</ul>
+	<!-- Portfolio Single - Meta End -->
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+					</div><!-- .portfolio-single-content end -->
+
+<div class="divider divider-center"><i class="icon-circle"></i></div>
+
+@*<div class="card">
+<div class="card-header"><strong>Posted by <a href="/Bars/Details/@Html.DisplayFor(modelItem => item)">@Html.DisplayFor(modelItem => item)</a></strong></div>
+<div class="card-body">
+	@Html.DisplayFor(modelItem => item)
+</div>
+</div><!-- Post Single - Author End --><br />*@
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit | </a>
+    }
+    <a asp-action="/#">Back to List</a>
 </div>

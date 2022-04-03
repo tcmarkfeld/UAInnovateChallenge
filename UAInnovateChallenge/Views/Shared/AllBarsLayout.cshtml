@@ -31,11 +31,16 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+
+
+    <section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+					
+                        @RenderBody()
+                </div>
+			</div>
+    </section>
 
     <footer class="border-top footer text-muted">
         <div class="container">
