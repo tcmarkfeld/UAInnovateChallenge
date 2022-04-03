@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using UAInnovateChallenge.Data;
-using UAInnovateChallenge.Data.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 

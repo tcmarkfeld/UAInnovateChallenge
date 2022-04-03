@@ -17,7 +17,7 @@ namespace UAInnovateChallenge.Models
         public Guid BarId { get; set; }
 
         public Bar? Bar { get; set; }
-        
+
         public bool? IsFavorite { get; set; }
     }
 }

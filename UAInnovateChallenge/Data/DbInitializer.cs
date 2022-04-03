@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using UAInnovateChallenge.Data.Migrations;
 
 namespace UAInnovateChallenge.Data
 {
@@ -21,11 +20,12 @@ namespace UAInnovateChallenge.Data
         {
             try
             {
-                if(_db.Database.GetPendingMigrations().Count() > 0 )
+                if (_db.Database.GetPendingMigrations().Count() > 0)
                 {
                     _db.Database.Migrate();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
@@ -40,7 +40,7 @@ namespace UAInnovateChallenge.Data
                 UserName = "adminantelope@gmail.com",
                 Email = "adminantelope@gmail.com",
                 EmailConfirmed = true
-                
+
             }, "#RollAntelopes1").GetAwaiter().GetResult();
 
             IdentityUser user = _db.Users.Where(u => u.Email == "adminantelope@gmail.com").FirstOrDefault();
