@@ -27,7 +27,7 @@ namespace UAInnovateChallenge.Data
                 }
             }catch(Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
             }
 
             if (_db.Roles.Any(r => r.Name == SD.Admin)) return;
@@ -37,14 +37,14 @@ namespace UAInnovateChallenge.Data
 
             _userManager.CreateAsync(new IdentityUser
             {
-                UserName = "timmarkfeld@gmail.com",
-                Email = "timmarkfeld@gmail.com",
+                UserName = "adminantelope@gmail.com",
+                Email = "adminantelope@gmail.com",
                 EmailConfirmed = true
+                
+            }, "#RollAntelopes1").GetAwaiter().GetResult();
 
-            }, "#RollAntelopes").GetAwaiter().GetResult();
-
-            IdentityUser user = _db.Users.Where(u => u.Email == "timmarkfeld@gmail.com").FirstOrDefault();
+            IdentityUser user = _db.Users.Where(u => u.Email == "adminantelope@gmail.com").FirstOrDefault();
             _userManager.AddToRoleAsync(user, SD.Admin).GetAwaiter().GetResult();
         }
     }
-    }
+}

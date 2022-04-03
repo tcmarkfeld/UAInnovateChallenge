@@ -1,20 +1,20 @@
 ﻿@model UAInnovateChallenge.Models.UserPosts
+@*@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>*@ 
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/AllPostsLayout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>New Post</h1>
 
-<h4>UserPosts</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
+                <label asp-for="User.Name" class="control-label"></label>
                 <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
             </div>
             <div class="form-group">

@@ -1,4 +1,4 @@
-﻿namespace UAInnovateChallenge.Data.Migrations
+﻿namespace UAInnovateChallenge.Data
 {
     public interface IDbInitializer
     {
