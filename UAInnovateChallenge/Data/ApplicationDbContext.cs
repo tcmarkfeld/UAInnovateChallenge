@@ -9,5 +9,11 @@ namespace UAInnovateChallenge.Data
             : base(options)
         {
         }
+        public DbSet<UAInnovateChallenge.Models.Bar> Bar { get; set; }
+        public DbSet<UAInnovateChallenge.Models.BarPosts> BarPosts { get; set; }
+        public DbSet<UAInnovateChallenge.Models.Employee> Employee { get; set; }
+        public DbSet<UAInnovateChallenge.Models.User> User { get; set; }
+        public DbSet<UAInnovateChallenge.Models.UserFavorites> UserFavorites { get; set; }
+        public DbSet<UAInnovateChallenge.Models.UserPosts> UserPosts { get; set; }
     }
 }
